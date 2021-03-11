@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				background-color: black;
+				display: flex;
+				flex-direction: column;
+				font-family: arial;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				overflow: hidden;
+			}
+			input[type=text]{
+				position: relative;
+				left: 00px;
+			}
+			input[type=range]{
+				position: relative;
+				top: 7px;
+			}
+			input
+		</style>
+	</head>
+
+	<body>
+
+		<div style="padding: 50px; background-color: white; position: relative; top: -50px;">
+			Iterations<br>
+			<input id="iter" type="range" min="0" max="500" value="326" oninput="paint()">
+			<input id="iter2" type="text" onchange="paintText()" value="326"><br><br>
+			Steps for one revolution - inner circle<br>
+			<input id="smallCirc" type="range" min="1" max="500" value="25" oninput="paint()">
+			<input id="smallCirc2" type="text" onchange="paint()" value="25"><br><br>
+			Steps for one revolution - outer circle<br>
+			<input id="bigCirc" type="range" min="1" max="500" value="163" oninput="paint()">
+			<input id="bigCirc2" type="text" onchange="paint()" value="163">
+		</div>
+
+		<canvas id="myCanvas" width="500" height="500" style="border: none; background-color: black; color: white;">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+
+		<script>
+			paint();
+
+			function paint(){
+				var c = document.getElementById("myCanvas");
+				var ctx = c.getContext("2d");
+				iterations = document.getElementById("iter").value;
+				smallStep = document.getElementById("smallCirc").value;
+				bigStep = document.getElementById("bigCirc").value;
+
+				document.getElementById("iter2").value = iterations;
+				document.getElementById("smallCirc2").value = smallStep;
+				document.getElementById("bigCirc2").value = bigStep;
+
+				ctx.clearRect(0, 0, 500, 500);
+				ctx.strokeStyle = "white";
+
+				for (var i = 1; i <= iterations; i++) {
+					ctx.beginPath();
+					ctx.moveTo(250+125*Math.cos(i*Math.PI*2/smallStep), 250+125*Math.sin(i*Math.PI*2/smallStep));
+					ctx.lineTo(250+250*Math.cos(i*Math.PI*2/bigStep), 250+250*Math.sin(i*Math.PI*2/bigStep));
+					ctx.stroke();
+				}
+			}
+
+			function paintText(){
+				var c = document.getElementById("myCanvas");
+				var ctx = c.getContext("2d");
+				iterations = document.getElementById("iter2").value;
+				smallStep = document.getElementById("smallCirc2").value;
+				bigStep = document.getElementById("bigCirc2").value;
+
+				ctx.clearRect(0, 0, 500, 500);
+				ctx.strokeStyle = "white";
+
+				for (var i = 1; i <= iterations; i++) {
+					ctx.beginPath();
+					ctx.moveTo(250+125*Math.cos(i*Math.PI*2/smallStep), 250+125*Math.sin(i*Math.PI*2/smallStep));
+					ctx.lineTo(250+250*Math.cos(i*Math.PI*2/bigStep), 250+250*Math.sin(i*Math.PI*2/bigStep));
+					ctx.stroke();
+				}
+			}
+		</script>
+
+	</body>
+</html>

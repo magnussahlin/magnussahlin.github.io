@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<style>
+	body {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: : stretch;
+	}
+	#black {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: black;
+		color: white;
+		width: 100%;
+		height: 50%;
+	}
+	p {
+		transform: rotate(90deg);
+		font-size: 5em;
+	}
+	#white {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: white;
+		color: black;
+		width: 100%;
+		height: 50%;
+	}
+</style>
+</head>
+
+<body onclick="change_player()">
+
+<div id="black"><p id="black_text">05:00</p></div>
+<div id="white"><p id="white_text">05:00</p></div>
+
+<script>
+
+var timer = setInterval(tick,1000);
+
+var b_minutes = 5;
+var b_seconds = 0;
+
+var w_minutes = 5;
+var w_seconds = 0;
+
+var black_text = document.getElementById('black_text');
+var white_text = document.getElementById('white_text');
+
+function tick() {
+	if (black_active) {
+		b_seconds--;
+		if (b_seconds == -1) {
+			b_seconds = 59;
+			b_minutes--;
+			if (b_minutes == -1) {
+				white_wins();
+			}
+		}
+	}
+	else {
+		w_seconds--;
+		if (w_seconds == -1) {
+			w_seconds = 59;
+			w_minutes--;
+			if (w_minutes == -1) {
+				black_wins();
+			}
+		}
+	}
+	update_text();
+}
+
+function update_text() {
+	black_text.innerHTML = add_zero(b_minutes)+':'+add_zero(b_seconds);
+	white_text.innerHTML = add_zero(w_minutes)+':'+add_zero(w_seconds);
+}
+
+function add_zero(num) {
+	if (num - 10 < 0)
+		num = '0'+num;
+	return num
+}
+
+function white_wins() {
+	b_minutes = 0
+	b_seconds = 0
+	clearInterval(timer);
+}
+
+function black_wins() {
+	w_minutes = 0
+	w_seconds = 0
+	clearInterval(timer);
+}
+
+function change_player() {
+	if (!(w_minutes == 0 && w_seconds == 0) && !(b_minutes == 0 && b_seconds == 0)) {
+		try {
+			if (black_active) {
+				black_text.style.color = "white";
+				white_text.style.color = "red";
+				black_active = false;
+			}
+			else {
+				black_text.style.color = "red";
+				white_text.style.color = "black";
+				black_active = true;
+			}
+		}
+		catch {
+			black_text.style.color = "red";
+			white_text.style.color = "black";
+			black_active = true;
+		}
+	}
+}
+
+</script>
+
+</body>
+
+</html>
