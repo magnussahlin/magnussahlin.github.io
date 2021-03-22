@@ -22,6 +22,10 @@
 		<div class="blue"></div>
 		<div class="green" style="width: 11.5384615%"></div>
 		<p id="time" style="position: relative; top: 35%; margin: 0 auto; text-align: center; font-size: 150px; font-family: arial; color: #0E79B2;">TIME</p>
+		<div style="display: flex; justify-content: center">
+			<button type="button" onclick="pause()">Pause</button>
+			<button type="button" onclick="start()">Start</button>
+		</div>
 	</body>
 
 	<script type="text/javascript">
@@ -32,10 +36,20 @@
 		var workBreak = "work";
 		var time = document.getElementById("time");
 		var pointer = document.getElementById("pointer");
+		var paused = false;
 
 		updateTime();
 
-		setInterval(tick, 1000);
+		var timer = setInterval(tick, 1000);
+
+		function pause() {
+			if (paused == false) {clearInterval(timer); paused = true}
+		}
+
+
+		function start() {
+			if (paused == true) {timer = setInterval(tick, 1000); paused = false}
+		}
 
 		function tick() {
 			seconds--;
@@ -74,7 +88,7 @@
 
 		function updatePointer() {
 			position++;
-			pointer.style.left = window.innerWidth*(position/7800)
+			pointer.style.left = position/78 + "%"
 		}
 
 		function updateTitle() {
