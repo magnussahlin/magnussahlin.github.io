@@ -1,0 +1,49 @@
+<html>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    p, a {
+      font-family: arial;
+      text-decoration: none;
+    }
+    code {
+      box-sizing: border-box;
+      white-space: pre-wrap;
+      background-color: #333;
+      color: #fff;
+      padding: 0em 1.5em;
+      width: 70em;
+    }
+  </style>
+  <body>
+    <img src="hemnet.png", style="width: 58.5em">
+    <p>Klistra in koden under i ett userscript add-on eller installera direkt för tampermonkey <a href="https://www.tampermonkey.net/">här</a></p>
+    <code>
+var info_list = document.getElementsByClassName('listing-card__attributes-container');
+
+var kontant_insats = 0.15;
+var ranta = 0.014;
+var amortering = 0.02;
+var drift = 400;
+var ranteavdrag = 0.3;
+
+function numberWithSpaces(x) {
+return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+info_list.forEach(info => {
+var primary_list = info.getElementsByClassName('listing-card__attribute listing-card__attribute--primary');
+var secondary_list = info.getElementsByClassName('listing-card__attribute listing-card__attribute--secondary');
+var pris = Math.round(primary_list[0].innerText.replace(/\s/g,'').replace('kr',''));
+var avgift = Math.round(secondary_list[0].innerText.replace(/\s/g,'').replace('kr/mån',''));
+var insats = pris*kontant_insats;
+var monthly_price = Math.round((pris-insats)*(amortering/12 + ranta/12 - ranta/12*ranteavdrag) + avgift + drift);
+
+info.innerHTML += '&lt;div class=\"listing-card__attributes-row\"&gt;&lt;div class=\"listing-card__attribute listing-card__attribute--secondary\">' + numberWithSpaces(monthly_price) + ' kr/mån tot.&lt;/div>&lt;div class=\"listing-card__attribute listing-card__attribute--secondary\">' + numberWithSpaces(insats) + ' kr insats&lt;/div>&lt;div class=\"listing-card__attribute listing-card__attribute--secondary\">&lt;/div>&lt;/div>'
+});
+    </code>
+  </body>
+</html>
