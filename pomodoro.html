@@ -2,9 +2,70 @@
 <html>
 	<head>
 		<style type="text/css">
-			body{padding: 0; margin: 0; background-color: #D6F9DD; overflow: hidden;}
-			.blue{height: 50px; float: left; background-color: #0E79B2; width: 19.2307692%}
-			.green{height: 50px; float: left; background-color: #99C24D; width: 3.84615385%}
+			body{
+				padding: 0;
+				margin: 0;
+				background-color: #e8f0ea;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				align-items: space-around;
+				justify-content: space-around;
+				height: 100%;
+			}
+			.blue{
+				height: 100%;
+				float: left;
+				background-color: #0E79B2;
+				width: 19.2307692%;
+			}
+			.green{
+				height: 100%;
+				float: left;
+				background-color: #99C24D;
+				width: 3.84615385%;
+			}
+			button {
+				color:black;
+				padding: 1em;
+				font-size: 2em;
+				line-height: 0em;
+				margin: 1em;
+				border: 0;
+				background-color: white;
+				width: 7em;
+				font-family: monospace;
+				transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+				box-shadow:0px 0px 50px 2px rgb(201, 201, 201);
+				height: 3em;
+			}
+			button:hover {
+				background: white;
+				box-shadow:0px 0px 30px 2px rgb(201, 201, 201);
+				transform: scale(1.02);
+			}
+			#upper {
+				height: 33%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+			}
+			#middle {
+				height: 10%;
+				background-color: #0E79B2;
+				display: flex;
+				align-self: center;
+				left: 50%;
+				width: 75%;
+				box-shadow:0px 0px 20px 0px rgb(114, 114, 114);
+			}
+			#lower {
+				height: 40%;
+				display: flex;
+			}
+			#pointer {
+				height: 100%;
+			}
 		</style>
 		<title>
 			25:00 work
@@ -12,17 +73,21 @@
 		<link rel="shortcut icon" href="pomo.ico">
 	</head>
 	<body>
-		<div id="pointer" style="width: 1px; height: 50px; background-color: #F3F8FE; position: absolute;"></div>
-		<div class="blue"></div>
-		<div class="green"></div>
-		<div class="blue"></div>
-		<div class="green"></div>
-		<div class="blue"></div>
-		<div class="green"></div>
-		<div class="blue"></div>
-		<div class="green" style="width: 11.5384615%"></div>
-		<p id="time" style="position: relative; top: 35%; margin: 0 auto; text-align: center; font-size: 150px; font-family: arial; color: #0E79B2;">TIME</p>
-		<div style="display: flex; justify-content: center">
+		<div id="upper">
+			<p id="time" style="display: flex; margin: 0; text-align: center; font-size: 150px; font-family: monospace; color: #0E79B2;">TIME</p>
+		</div>
+		<div id="middle">
+			<div id="pointer" style="width: 0.1em; background-color:rgb(255, 255, 255); position: relative;"></div>
+			<div class="blue"></div>
+			<div class="green"></div>
+			<div class="blue"></div>
+			<div class="green"></div>
+			<div class="blue"></div>
+			<div class="green"></div>
+			<div class="blue"></div>
+			<div class="green" style="width: 11.5384615%"></div>
+		</div>
+		<div id="lower" style="display: flex; justify-content: center">
 			<button type="button" onclick="pause()">Pause</button>
 			<button type="button" onclick="start()">Start</button>
 		</div>
