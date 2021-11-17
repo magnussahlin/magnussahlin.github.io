@@ -1,13 +1,63 @@
-<h1>Magnus Sahlin Web Applications</h1>
-<a href="planets.html">
-<h2>Planet Graph</h2></a>
-<p>Inspired by the patterns made by planets revolving the sun. Pull the sliders to change the paramteres.</p>
-<a href="chess.html">
-<h2>Chess Clock</h2></a>
-<p>Blitz chess clock. Press anywhere on the screen to start.</p>
-<a href="pomodoro.html">
-<h2>Study Timer</h2></a>
-<p>Pomodoro Timer with progress bar. 25 minutes work, 5 minutes rest.</p>
-<a href="hemnet.html">
-<h2>Hemnet improvement</h2></a>
-<p>Userscript to display approximate total monthly cost and down payment on Hemnet.</p>
+<style>
+    * {
+        font-family: monospace;
+        text-decoration: none;
+        text-align: center;
+        color: black;
+    }
+    body {
+        background: rgb(240, 240, 240);
+    }
+    #content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    a {
+        width:20%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        box-shadow: 0 0 10px 1px lightgray;
+		transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    a:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px 5px lightgray;
+    }
+    .img {
+        display: flex;
+        width: 100% + 2em;
+        height: 25em;
+        margin-left: -1em;
+        margin-right: -1em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: black;
+        background-position: center;
+    }
+</style>
+
+<body>
+    <h1>Magnus Sahlin Web Applications</h1>
+    <div id="content">
+        <a href="planets.html">
+            <h2>Planet Graph</h2>
+            <div class="img" style="background-image: url('planets.png');"></div>
+            <p>Inspired by the patterns made by planets revolving the sun. Pull the sliders to change the paramteres.</p>
+        </a>
+        <a href="chess.html">
+            <h2>Chess Clock</h2>
+            <p>Blitz chess clock. Press anywhere on the screen to start.</p>
+        </a>
+        <a href="pomodoro.html">
+            <h2>Study Timer</h2>
+            <p>Pomodoro Timer with progress bar. 25 minutes work, 5 minutes rest.</p>
+        </a>
+        <a href="hemnet.html">
+            <h2>Hemnet improvement</h2>
+            <p>Userscript to display approximate total monthly cost and down payment on Hemnet.</p>
+        </a>
+    </div>
+</body>
