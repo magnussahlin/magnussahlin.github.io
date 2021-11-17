@@ -6,117 +6,98 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		justify-content: : stretch;
+		justify-content: stretch;
+		background-color: lightgray;
 	}
-	#black {
+	button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: black;
-		color: white;
 		width: 100%;
 		height: 50%;
+		box-shadow: 0 0 2em 0em gray;
+		background-color: white;
+		color: gray;
+		transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+		transform: scale(0.85);
+		border: 0;
 	}
 	p {
+		font-family: monospace;
 		transform: rotate(90deg);
-		font-size: 5em;
-	}
-	#white {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: white;
-		color: black;
-		width: 100%;
-		height: 50%;
+		font-size: 1000%;
 	}
 </style>
 </head>
 
-<body onclick="change_player()">
-
-<div id="black"><p id="black_text">05:00</p></div>
-<div id="white"><p id="white_text">05:00</p></div>
+<button id="black" onclick="black_press()"><p id="black_text">05:00</p></div>
+<button id="white" onclick="white_press()"><p id="white_text">05:00</p></div>
 
 <script>
 
-var timer = setInterval(tick,1000);
+var timer = setInterval(tick,10);
 
-var b_minutes = 5;
-var b_seconds = 0;
+var b_time = 5*60*1000;
+var w_time = 5*60*1000;
 
-var w_minutes = 5;
-var w_seconds = 0;
+black_active = false;
+white_active = false;
+game_ended = false;
 
 var black_text = document.getElementById('black_text');
 var white_text = document.getElementById('white_text');
+var black_button = document.getElementById('black');
+var white_button = document.getElementById('white');
 
 function tick() {
-	if (black_active) {
-		b_seconds--;
-		if (b_seconds == -1) {
-			b_seconds = 59;
-			b_minutes--;
-			if (b_minutes == -1) {
-				white_wins();
-			}
+	if (game_ended == false) {
+		if (black_active) {
+			b_time-=10;
 		}
-	}
-	else {
-		w_seconds--;
-		if (w_seconds == -1) {
-			w_seconds = 59;
-			w_minutes--;
-			if (w_minutes == -1) {
-				black_wins();
-			}
+		if (white_active) {
+			w_time-=10;
 		}
+		if (b_time <= 0 || w_time <= 0) {
+			game_ended = true;
+			clearInterval(timer);
+		}
+		update_text();
 	}
-	update_text();
 }
 
 function update_text() {
-	black_text.innerHTML = add_zero(b_minutes)+':'+add_zero(b_seconds);
-	white_text.innerHTML = add_zero(w_minutes)+':'+add_zero(w_seconds);
+	black_text.innerHTML = to_mmss(b_time);
+	white_text.innerHTML = to_mmss(w_time);
 }
 
-function add_zero(num) {
-	if (num - 10 < 0)
-		num = '0'+num;
-	return num
+function to_mmss(milli)
+{
+      var milliseconds = milli % 1000;
+      var seconds = Math.floor((milli / 1000) % 60);
+      var minutes = Math.floor((milli / (60 * 1000)) % 60);
+
+      return ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
 }
 
-function white_wins() {
-	b_minutes = 0
-	b_seconds = 0
-	clearInterval(timer);
+function black_press() {
+	if (game_ended == false) {
+		black_active = false;
+		white_active = true;
+		black_button.style["transform"] = "scale(0.85)";
+		white_button.style["transform"] = "scale(0.95)";
+		black_button.style["color"] = "gray";
+		white_button.style["color"] = "black";
+	}
 }
 
-function black_wins() {
-	w_minutes = 0
-	w_seconds = 0
-	clearInterval(timer);
-}
-
-function change_player() {
-	if (!(w_minutes == 0 && w_seconds == 0) && !(b_minutes == 0 && b_seconds == 0)) {
-		try {
-			if (black_active) {
-				black_text.style.color = "white";
-				white_text.style.color = "red";
-				black_active = false;
-			}
-			else {
-				black_text.style.color = "red";
-				white_text.style.color = "black";
-				black_active = true;
-			}
-		}
-		catch {
-			black_text.style.color = "red";
-			white_text.style.color = "black";
-			black_active = true;
-		}
+function white_press() {
+	if (game_ended == false) {
+		white_active = false;
+		black_active = true;
+		black_button.style["transform"] = "scale(0.95)";
+		white_button.style["transform"] = "scale(0.85)";
+		black_button.style["color"] = "black";
+		white_button.style["color"] = "gray";
 	}
 }
 
