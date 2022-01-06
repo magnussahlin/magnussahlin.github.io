@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    background-image: url('../../thumbnails/chess.png');
+}
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    box-shadow: 0 0 2em 0em black;
+    background-color: white;
+    color: gray;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scale(0.85);
+    border: 0;
+}
+p {
+    font-family: monospace;
+    transform: rotate(90deg);
+    font-size: 1000%;
+}

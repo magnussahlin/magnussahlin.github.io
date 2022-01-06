@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: arial;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+input[type=text]{
+    position: relative;
+    left: 00px;
+}
+input[type=range]{
+    position: relative;
+    top: 7px;
+}

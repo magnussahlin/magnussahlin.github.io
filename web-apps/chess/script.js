@@ -1,40 +1,3 @@
-<html>
-
-<head>
-<style>
-	body {
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: stretch;
-		background-image: url('../thumbnails/chess.png');
-	}
-	button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 50%;
-		box-shadow: 0 0 2em 0em black;
-		background-color: white;
-		color: gray;
-		transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-		transform: scale(0.85);
-		border: 0;
-	}
-	p {
-		font-family: monospace;
-		transform: rotate(90deg);
-		font-size: 1000%;
-	}
-</style>
-</head>
-
-<button id="black" onclick="black_press()"><p id="black_text">05:00</p></div>
-<button id="white" onclick="white_press()"><p id="white_text">05:00</p></div>
-
-<script>
-
 var timer = setInterval(tick,10);
 
 var b_time = 5*60*1000;
@@ -100,9 +63,3 @@ function white_press() {
 		white_button.style["color"] = "gray";
 	}
 }
-
-</script>
-
-</body>
-
-</html>
