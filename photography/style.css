@@ -1,0 +1,11 @@
+img {
+    max-height: 90vh;
+    max-width: 100%;
+    margin: 1em;
+}
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(70, 70, 70);
+}

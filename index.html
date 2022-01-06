@@ -1,89 +1,48 @@
-<style>
-    * {
-        font-family: monospace;
-        text-decoration: none;
-        text-align: center;
-        color: black;
-    }
-    body {
-        background: rgb(240, 240, 240);
-    }
-    h1 {
-        margin: 2em 0 1em 0;
-    }
-    #content {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    a {
-        width:25em;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        margin: 3em;
-        box-shadow: 0 0 10px 1px lightgray;
-		transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    a:hover {
-        transform: scale(1.02);
-        box-shadow: 0 0 10px 5px lightgray;
-    }
-    .img {
-        display: flex;
-        width: 100% + 2em;
-        height: 25em;
-        margin-left: -1em;
-        margin-right: -1em;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-color: black;
-        background-position: center;
-    }
-</style>
-
-<body>
-    <h1>Web Applications</h1>
-    <div id="content">
-        <a href="planets.html">
-            <h2>Planet Graph</h2>
-            <div class="img" style="background-image: url('planets.png');"></div>
-            <p>Inspired by the patterns made by planets revolving the sun. Pull the sliders to change the parameters.</p>
-        </a>
-        <a href="chess.html">
-            <h2>Chess Clock</h2>
-            <div class="img" style="background-image: url('chess_pattern.png');background-repeat: repeat; background-size: 50%;"></div>
-            <p>Blitz time control.</p>
-        </a>
-        <a href="pomodoro.html">
-            <h2>Study Timer</h2>
-            <div class="img" style="background-image: url('1337.png'); background-size: 50%; background-color: #e8f0ea;"></div>
-            <p>Pomodoro Timer with progress bar. 25 minutes work, 5 minutes rest.</p>
-        </a>
-        <a href="hemnet.html">
-            <h2>Hemnet Add-on</h2>
-            <div class="img" style="background-image: url('https://assets.hemnet.se/assets/images/hemnet-logo.svg'); background-size: 80%; background-color: #e4e8da;"></div>
-            <p>Userscript to display approximate total monthly cost and down payment on Hemnet.</p>
-        </a>
-    </div>
-    <h1>Photography</h1>
-    <div id="content">
-        <a href="photography/norway.html">
-            <h2>Norway</h2>
-            <div class="img" style="background-image: url('thumbnail-1.jpg'); background-size: cover;"></div>
-            <p>Trip to Norway 2017.</p>
-        </a>
-        <a href="photography/student.html">
-            <h2>Student Life</h2>
-            <div class="img" style="background-image: url('student-thumbnail.jpg'); background-size: cover;"></div>
-            <p>From various events during my time as photographer in Uppsalas student life.</p>
-        </a>
-        <a href="photography/italy.html">
-            <h2>Italy</h2>
-            <div class="img" style="background-image: url('italy-thumbnail.jpg'); background-size: cover;"></div>
-            <p>Venice 2015.</p>
-        </a>
-    </div>
-</body>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Web Applications</h1>
+        <div id="content">
+            <a href="web-apps/planets.html">
+                <h2>Planet Graph</h2>
+                <div class="img" style="background-image: url('thumbnails/planets.png');"></div>
+                <p>Inspired by the patterns made by planets revolving the sun. Pull the sliders to change the parameters.</p>
+            </a>
+            <a href="web-apps/chess.html">
+                <h2>Chess Clock</h2>
+                <div class="img" style="background-image: url('thumbnails/chess.png');background-repeat: repeat; background-size: 50%;"></div>
+                <p>Blitz time control.</p>
+            </a>
+            <a href="web-apps/pomodoro.html">
+                <h2>Study Timer</h2>
+                <div class="img" style="background-image: url('thumbnails/pomodoro.png'); background-size: 50%; background-color: #e8f0ea;"></div>
+                <p>Pomodoro Timer with progress bar. 25 minutes work, 5 minutes rest.</p>
+            </a>
+            <a href="web-apps/hemnet.html">
+                <h2>Hemnet Add-on</h2>
+                <div class="img" style="background-image: url('https://assets.hemnet.se/assets/images/hemnet-logo.svg'); background-size: 80%; background-color: #e4e8da;"></div>
+                <p>Userscript to display approximate total monthly cost and down payment on Hemnet.</p>
+            </a>
+        </div>
+        <h1>Photography</h1>
+        <div id="content">
+            <a href="photography/norway.html">
+                <h2>Norway</h2>
+                <div class="img" style="background-image: url('thumbnails/norway.jpg'); background-size: cover;"></div>
+                <p>Trip to Norway 2017.</p>
+            </a>
+            <a href="photography/student.html">
+                <h2>Student Life</h2>
+                <div class="img" style="background-image: url('thumbnails/student.jpg'); background-size: cover;"></div>
+                <p>From various events during my time as photographer in Uppsalas student life.</p>
+            </a>
+            <a href="photography/italy.html">
+                <h2>Italy</h2>
+                <div class="img" style="background-image: url('thumbnails/italy.jpg'); background-size: cover;"></div>
+                <p>Venice 2015.</p>
+            </a>
+        </div>
+    </body>
+</html>
