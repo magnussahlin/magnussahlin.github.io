@@ -1,0 +1,28 @@
+html {
+    display: flex;
+    align-items: center;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    width: 550;
+    height: 550;
+    top: -5em;
+    position: relative;
+    margin: 0 auto;
+
+}
+
+#score {
+    width: 100%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 5em;
+}
+
+.square {
+    width: 45px;
+    height: 45px;
+    margin: 2.5px;
+}
