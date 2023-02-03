@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - pandas
+        - matplotlib
+        - numpy
+    </py-env>
+</head>
+
+<body>
+	<div id="left">
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="0">0</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="1">1</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="2">2</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="3">3</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="4">4</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="5">5</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="6">6</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="7">7</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="8">8</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="9">9</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="10">10</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="11">11</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="12">12</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="13">13</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="14">14</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="15">15</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="16">16</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="17">17</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="18">18</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="19">19</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="20">20</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="21">21</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="22">22</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="23">23</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="24">24</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="25">25</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="26">26</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="27">27</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="28">28</button>
+		<button type="button" class="letter" onclick="letterClicked(this.id)" id="29">29</button>
+		
+		<div style="width: 100%;">
+			<button id="click-btn" style="margin: 0.2em; padding: 1em; background-color: #334155; color: white" pys-onClick="handle_click">Compute</button>
+			<div id="color-element">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</div>
+			<div id="letter-element">-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-</div>
+		</div>
+	</div>
+	
+	<div id="right">
+		
+	</div>
+
+	<script src="./script.js"></script>
+
+	<py-script src="./script.py" output="right"></py-script>
+
+</body>
+
+</html>
