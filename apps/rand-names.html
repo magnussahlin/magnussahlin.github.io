@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Randomized Names</title>
+</head>
+
+<body>
+    <h1>Randomized Names</h1>
+    <div id="names-container"></div>
+
+    <script>
+        // Define array of names
+        const names = ["Jerker", "Niklas", "Hugo", "Magnus", "Micke", "Adina", "Gustaf", "Felix"];
+
+        // Shuffle the array using Fisher-Yates shuffle algorithm
+        for (let i = names.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [names[i], names[j]] = [names[j], names[i]];
+        }
+
+        // Split the array into four columns of two names each
+        const columns = Array.from({ length: 4 }).map((_, i) => names.slice(i * 2, i * 2 + 2));
+
+        // Create unordered lists for each column
+        const lists = columns.map(column => {
+            const list = document.createElement("ul");
+            column.forEach(name => {
+                const listItem = document.createElement("li");
+                listItem.textContent = name;
+                list.appendChild(listItem);
+            });
+            return list;
+        });
+
+        // Add the unordered lists to the container div
+        const container = document.querySelector("#names-container");
+        lists.forEach(list => container.appendChild(list));
+    </script>
+</body>
+
+</html>
