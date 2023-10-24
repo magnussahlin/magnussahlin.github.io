@@ -55,6 +55,7 @@ html {
     color: white;
     background-color: #334155;
     padding: 1em;
+    overflow-y: auto;
 }
 #color-element, #letter-element {
     font-family: 'Courier New', Courier, monospace;
