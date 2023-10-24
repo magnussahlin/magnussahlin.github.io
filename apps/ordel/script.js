@@ -70,24 +70,24 @@ function increase_index() {
 function new_letter(e) {
     if (e.keyCode == 8) {
         decrease_index();
-        document.getElementById(index).innerHTML = index;
+        document.getElementById(index).innerHTML = '';
         updateLetter(index, '-');
         return;
     } else {
         if (index == 30) {
             return;
         } else if (e.keyCode == 221) {
-            document.getElementById(index).innerHTML = 'å';
+            document.getElementById(index).innerHTML = 'Å';
         } else if (e.keyCode == 222) {
-            document.getElementById(index).innerHTML = 'ä';
+            document.getElementById(index).innerHTML = 'Ä';
         } else if (e.keyCode == 192) {
-            document.getElementById(index).innerHTML = 'ö';
+            document.getElementById(index).innerHTML = 'Ö';
         } else if (e.keyCode < 65 || e.keyCode > 90) {
             return;
         } else {
-            document.getElementById(index).innerHTML = String.fromCharCode(e.keyCode).toLowerCase();
+            document.getElementById(index).innerHTML = String.fromCharCode(e.keyCode).toUpperCase();
         }
-        updateLetter(index, document.getElementById(index).innerHTML);
+        updateLetter(index, document.getElementById(index).innerHTML.toLowerCase());
         increase_index();
     }
 }
