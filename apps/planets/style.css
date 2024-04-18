@@ -1,18 +1,64 @@
-body{
-    background-color: black;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     display: flex;
     flex-direction: column;
-    font-family: arial;
-    justify-content: center;
     align-items: center;
-    height: 100%;
     overflow: hidden;
+    background-color: black;
+    height: 100%;
+    font-family: arial;
 }
-input[type=text]{
-    position: relative;
-    left: 00px;
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30%;
+    width: 100%;
+    background-color: white;
 }
-input[type=range]{
-    position: relative;
-    top: 7px;
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type=text] {
+    width: 15%;
+}
+
+input[type=range] {
+    width: 80%;
+}
+
+#canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+}
+
+canvas {
+    border: none;
+    background-color: black;
+    color: white;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+@media screen and (min-width: 768px) {
+
+    #controls {
+        margin-top: 5%;
+        padding: 1rem 0 2rem 0;
+        height: 15%;
+        width: 35%;
+        max-width: 35rem;
+    }
+
 }

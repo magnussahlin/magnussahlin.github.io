@@ -1,22 +1,31 @@
 <html>
 	<head>
 		<link rel="stylesheet" typ="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
-		<div style="padding: 50px; background-color: white; position: relative; top: -50px;">
-			Iterations<br>
-			<input id="iter" type="range" min="0" max="500" value="326" oninput="paint()">
-			<input id="iter2" type="text" onchange="paintText()" value="326"><br><br>
-			Steps for one revolution - inner circle<br>
-			<input id="smallCirc" type="range" min="1" max="500" value="25" oninput="paint()">
-			<input id="smallCirc2" type="text" onchange="paint()" value="25"><br><br>
-			Steps for one revolution - outer circle<br>
-			<input id="bigCirc" type="range" min="1" max="500" value="163" oninput="paint()">
-			<input id="bigCirc2" type="text" onchange="paint()" value="163">
+		<div id="controls">
+			<p>Iterations</p>
+			<div class="row">
+				<input id="iter" type="range" min="0" max="360" value="360" oninput="paint()">
+				<input id="iter2" type="text" onchange="paintText()" value="360">
+			</div>
+			<p>Inner circle step size</p>
+			<div class="row">
+				<input id="smallCirc" type="range" min="1" max="360" value="5" oninput="paint()">
+				<input id="smallCirc2" type="text" onchange="paint()" value="5">
+			</div>
+			<p>Outer circle step size</p>
+			<div class="row">
+				<input id="bigCirc" type="range" min="1" max="360" value="69" oninput="paint()">
+				<input id="bigCirc2" type="text" onchange="paint()" value="69">
+			</div>
 		</div>
-		<canvas id="myCanvas" width="500" height="500" style="border: none; background-color: black; color: white;">
-			Your browser does not support the HTML5 canvas tag.
-		</canvas>
+		<div id="canvas">
+			<canvas id="myCanvas" width="500" height="500">
+				Your browser does not support the HTML5 canvas tag.
+			</canvas>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>

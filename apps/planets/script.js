@@ -16,8 +16,8 @@ function paint(){
 
     for (var i = 1; i <= iterations; i++) {
         ctx.beginPath();
-        ctx.moveTo(250+125*Math.cos(i*Math.PI*2/smallStep), 250+125*Math.sin(i*Math.PI*2/smallStep));
-        ctx.lineTo(250+250*Math.cos(i*Math.PI*2/bigStep), 250+250*Math.sin(i*Math.PI*2/bigStep));
+        ctx.moveTo(250+125*Math.cos(i*Math.PI*2*(smallStep/360)), 250+125*Math.sin(i*Math.PI*2*(smallStep/360)));
+        ctx.lineTo(250+250*Math.cos(i*Math.PI*2*(bigStep/360)), 250+250*Math.sin(i*Math.PI*2*(bigStep/360)));
         ctx.stroke();
     }
 }
