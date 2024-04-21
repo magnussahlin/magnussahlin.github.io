@@ -7,10 +7,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #e8f0ea;
     font-family: monospace;
+    overflow: hidden;
 }
 
 #upper {
