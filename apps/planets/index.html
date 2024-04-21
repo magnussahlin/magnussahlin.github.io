@@ -4,6 +4,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
+		<div id="canvas">
+			<canvas id="myCanvas" width="500" height="500">
+				Your browser does not support the HTML5 canvas tag.
+			</canvas>
+		</div>
 		<div id="controls">
 			<p>Iterations</p>
 			<div class="row">
@@ -20,11 +25,6 @@
 				<input id="bigCirc" type="range" min="1" max="360" value="69" oninput="paint()">
 				<input id="bigCirc2" type="text" onchange="paint()" value="69">
 			</div>
-		</div>
-		<div id="canvas">
-			<canvas id="myCanvas" width="500" height="500">
-				Your browser does not support the HTML5 canvas tag.
-			</canvas>
 		</div>
 		<script src="script.js"></script>
 	</body>

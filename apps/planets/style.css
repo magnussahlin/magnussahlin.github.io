@@ -61,4 +61,8 @@ canvas {
         max-width: 35rem;
     }
 
+    body {
+        flex-flow: column-reverse;
+    }
+
 }
