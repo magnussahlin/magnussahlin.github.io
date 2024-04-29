@@ -16,6 +16,7 @@ var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+var board = document.getElementById("game");
 
 function is_colliding(new_point) {
     var some_collision = false;
@@ -87,7 +88,7 @@ function wrap(number) {
 function create_map() {
     for (let i = 0; i < map.length; i++) {
         for (let j = 0; j < map[0].length; j++) {
-            document.body.innerHTML += '<div id="id' + i + j + '" class="square"></div>';
+            board.innerHTML += '<div id="id' + i + j + '" class="square"></div>';
         }
     }
 }
@@ -106,43 +107,67 @@ function paint() {
     }
 }
 
+function up(button = true) {
+    if (button) {enter()}
+    if (snake_list.length == 1 || !(wrap(snake_list[0][0] - 1) == snake_list[1][0] && snake_list[0][1] == snake_list[1][1])) {
+        x_direction = 0;
+        y_direction = -1;
+    }
+}
+
+function left(button = true) {
+    if (button) {enter()};
+    if (snake_list.length == 1 || !(snake_list[0][0] == snake_list[1][0] && wrap(snake_list[0][1] - 1) == snake_list[1][1])) {
+        x_direction = -1;
+        y_direction = 0;
+    }
+}
+
+function right(button = true) {
+    if (button) {enter()};
+    if (snake_list.length == 1 || !(snake_list[0][0] == snake_list[1][0] && wrap(snake_list[0][1] + 1) == snake_list[1][1])) {
+        x_direction = 1;
+        y_direction = 0;
+    }
+}
+
+function down(button = true) {
+    if (button) {enter()};
+    if (snake_list.length == 1 || !(wrap(snake_list[0][0] + 1) == snake_list[1][0] && snake_list[0][1] == snake_list[1][1])) {
+        x_direction = 0;
+        y_direction = 1;
+    }
+}
+
+function enter() {
+    if (game_over) {
+        x_direction = 0;
+        y_direction = 1;
+        food_point = get_new_point();
+        snake_list = [[5,5]];
+        game_over = false;
+        document.getElementById("score").innerHTML = "1";
+        tick();
+        timer = setInterval(tick, 100);
+    }
+}
+
 document.addEventListener('keydown', press)
 function press(e){
     if (e.keyCode === 38 || e.keyCode === 87) { // Up
-        if (snake_list.length == 1 || !(wrap(snake_list[0][0] - 1) == snake_list[1][0] && snake_list[0][1] == snake_list[1][1])) {
-            x_direction = 0;
-            y_direction = -1;
-        }
+        up(false);
     }
     if (e.keyCode === 37 || e.keyCode === 65) { // Left
-        if (snake_list.length == 1 || !(snake_list[0][0] == snake_list[1][0] && wrap(snake_list[0][1] - 1) == snake_list[1][1])) {
-            x_direction = -1;
-            y_direction = 0;
-        }
+        left(false);
     }
     if (e.keyCode === 40 || e.keyCode === 83) { // Down
-        if (snake_list.length == 1 || !(wrap(snake_list[0][0] + 1) == snake_list[1][0] && snake_list[0][1] == snake_list[1][1])) {
-            x_direction = 0;
-            y_direction = 1;
-        }
+        down(false);
     }
     if (e.keyCode === 39 || e.keyCode === 68) { // Right
-        if (snake_list.length == 1 || !(snake_list[0][0] == snake_list[1][0] && wrap(snake_list[0][1] + 1) == snake_list[1][1])) {
-            x_direction = 1;
-            y_direction = 0;
-        }
+        right(false);
     }
     if (e.keyCode === 32 || e.keyCode === 13) { // Space / Enter
-        if (game_over) {
-            x_direction = 0;
-            y_direction = 1;
-            food_point = get_new_point();
-            snake_list = [[5,5]];
-            game_over = false;
-            document.getElementById("score").innerHTML = "1";
-            tick();
-            timer = setInterval(tick, 100);
-        }
+        enter();
     }
 }
 

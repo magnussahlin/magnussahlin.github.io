@@ -1,20 +1,23 @@
 html {
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 }
 
-body {
+#game {
     display: flex;
     flex-wrap: wrap;
-    width: 550;
-    height: 550;
-    top: -5em;
-    position: relative;
-    margin: 0 auto;
-
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vw;
+    max-width: 60vh;
+    max-height: 60vh;
 }
 
 #score {
+    position: absolute;
     width: 100%;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -22,7 +25,27 @@ body {
 }
 
 .square {
-    width: 45px;
-    height: 45px;
-    margin: 2.5px;
+    position: relative;
+    width: 8.5%;
+    height: 8.5%;
+    float: left;
+}
+
+#control {
+    position: fixed;
+    width: 200vw;
+    height: 200vw;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+}
+
+.control_button {
+    float: left;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 2;
+    border: 0;
 }
